@@ -25,5 +25,4 @@ public class RazorPayService {
 
     @Value("${spring.datasource.key_secret}")
     public String SECRET_KEY;
-
 }
