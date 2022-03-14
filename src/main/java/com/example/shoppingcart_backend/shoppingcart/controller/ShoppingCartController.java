@@ -1,14 +1,9 @@
 package com.example.shoppingcart_backend.shoppingcart.controller;
 
-import com.example.shoppingcart_backend.shoppingcart.Signature;
 import com.example.shoppingcart_backend.shoppingcart.models.Response;
-import com.example.shoppingcart_backend.shoppingcart.models.ShoppingCart;
 import com.example.shoppingcart_backend.shoppingcart.models.ShoppingItem;
 import com.example.shoppingcart_backend.shoppingcart.service.ShoppingCartService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
-
-import java.security.SignatureException;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 

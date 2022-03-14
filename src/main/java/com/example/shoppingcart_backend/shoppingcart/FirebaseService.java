@@ -22,7 +22,7 @@ public class FirebaseService implements CommandLineRunner {
 
         Resource resource = resourceLoader.getResource("classpath:servicekey.json");
         InputStream inputStream = resource.getInputStream();
-        FirebaseOptions options = new FirebaseOptions.Builder()
+        FirebaseOptions options = FirebaseOptions.builder()
                 .setCredentials(GoogleCredentials.fromStream(inputStream))
                 .build();
         if(FirebaseApp.getApps().isEmpty()) { //<--- check with this line
