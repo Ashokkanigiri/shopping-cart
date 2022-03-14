@@ -1,8 +1,8 @@
 package com.example.shoppingcart_backend.shoppingcart.controller;
 
-import com.ashok.kanigiri.shoppingcart.service.models.OrdersRequest;
 import com.example.shoppingcart_backend.shoppingcart.Signature;
 import com.example.shoppingcart_backend.shoppingcart.models.CapturePaymentRequest;
+import com.example.shoppingcart_backend.shoppingcart.models.OrdersRequest;
 import com.example.shoppingcart_backend.shoppingcart.models.PaymentData;
 import com.example.shoppingcart_backend.shoppingcart.service.RazorPayService;
 import com.google.gson.Gson;
