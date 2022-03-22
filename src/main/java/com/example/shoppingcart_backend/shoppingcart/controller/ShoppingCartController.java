@@ -40,14 +40,19 @@ public class ShoppingCartController {
         return shoppingCartService.getallShoppingItems();
     }
 
-    @PostMapping("/addShoppingItem")
+    @PostMapping("/addShoppingItemToCart")
     public Response<String> addShoppingItemToCart(@RequestBody  ShoppingItem shoppingItem){
-        return shoppingCartService.addItemToCart(shoppingItem);
+        return shoppingCartService.addShoppingItemToCart(shoppingItem);
     }
 
     @DeleteMapping("/deleteShoppingItem/{id}")
     public Response<String> deleteShoppingItem(@PathVariable("id") String id){
         return shoppingCartService.deleteShoppingItem(id);
+    }
+
+    @PostMapping("/insertShoppingItems")
+    public Response<String> insertShoppingItems(@RequestBody List<ShoppingItem> itemsList){
+        return shoppingCartService.insertShoppingItems(itemsList);
     }
 
 

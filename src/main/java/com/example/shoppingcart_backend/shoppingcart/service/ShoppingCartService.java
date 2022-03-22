@@ -17,6 +17,7 @@ import java.util.concurrent.ExecutionException;
 @Service
 public class ShoppingCartService {
     private String SHOPPING_ITEMS_COLLECTION = "shopping_items";
+    private String ADD_TO_CART_COLLECTION = "add_to_cart";
 
     public String getTestEndPoint() {
         return "End point is owrking fine";
@@ -43,9 +44,9 @@ public class ShoppingCartService {
         return list;
     }
 
-    public Response<String> addItemToCart(ShoppingItem shoppingItem) {
+    public Response<String> addShoppingItemToCart(ShoppingItem shoppingItem) {
         try {
-            FirestoreClient.getFirestore().collection(SHOPPING_ITEMS_COLLECTION).document(shoppingItem.getId()).set(shoppingItem);
+            FirestoreClient.getFirestore().collection(ADD_TO_CART_COLLECTION).document(shoppingItem.getId()).set(shoppingItem);
         } catch (Exception e) {
             return new Response<String>("An Unknown Error Occured", HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -60,6 +61,18 @@ public class ShoppingCartService {
         }
         return new Response<String>("Item Deleted Sucessfully", HttpStatus.OK);
 
+    }
+
+    public Response<String> insertShoppingItems(List<ShoppingItem> list){
+        for (ShoppingItem item:
+             list) {
+            try {
+                FirestoreClient.getFirestore().collection(SHOPPING_ITEMS_COLLECTION).document(item.getId()).set(item);
+            } catch (Exception e) {
+                return new Response<String>("An Unknown Error Occured", HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+        return new Response<String>("list Inserted Sucessfully", HttpStatus.OK);
     }
 
 }
